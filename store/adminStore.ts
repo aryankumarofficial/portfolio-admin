@@ -41,7 +41,7 @@ export const useAdminStore = create<AdminStore>()(
           }
         },
         logout: async () => {
-          set({ isLoading: false })
+          set({ isLoading: true })
           get().clearError()
           try {
             await logout()
