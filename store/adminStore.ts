@@ -1,6 +1,7 @@
 import { login, logout } from "@/lib/api"
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
+import Cookies from "js-cookie"
 
 type Admin = {
   email: string
@@ -27,6 +28,10 @@ export const useAdminStore = create<AdminStore>()(
           get().clearError()
           try {
             await login(email, password)
+            Cookies.set("isLoggedIn", "true", {
+              expires: 1,
+              sameSite: "Lax",
+            })
             set({ admin: { email } })
           } catch (error) {
             set({ error: (error as Error).message })
@@ -41,6 +46,7 @@ export const useAdminStore = create<AdminStore>()(
           try {
             await logout()
           } finally {
+            Cookies.remove("isLoggedIn")
             set({ admin: null, isLoading: false })
           }
         },
