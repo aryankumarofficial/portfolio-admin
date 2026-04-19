@@ -30,6 +30,7 @@ export const useAdminStore = create<AdminStore>()(
             set({ admin: { email } })
           } catch (error) {
             set({ error: (error as Error).message })
+            throw new Error(get().error || "Something went wrong"!)
           } finally {
             set({ isLoading: false })
           }

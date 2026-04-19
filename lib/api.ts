@@ -1,5 +1,5 @@
 import { Message } from "@/types"
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 
 const API_URL = process.env.NEXT_PUBLIC_BACKEND_API_URL
 
@@ -14,8 +14,9 @@ export const api = axios.create({
 
 api.interceptors.response.use(
   (res) => res,
-  (error) => {
-    const message = error?.response?.data?.error ?? "Something went wrong"
+  (error: AxiosError<{ error: string }>) => {
+    const message =
+      error?.response?.data?.error ?? error?.message ?? "Something went wrong"
     return Promise.reject(new Error(message))
   }
 )
