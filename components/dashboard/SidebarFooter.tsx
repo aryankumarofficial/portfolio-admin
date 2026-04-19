@@ -25,7 +25,7 @@ export function SidebarFooterComponent() {
         <Button
           variant="default"
           size="sm"
-          className="w-full justify-start gap-2 [&_svg]:shrink-0"
+          className="w-full cursor-pointer justify-start gap-2 [&_svg]:shrink-0"
           asChild
         >
           <a
@@ -43,7 +43,7 @@ export function SidebarFooterComponent() {
           <Button
             variant="destructive"
             size="sm"
-            className="w-full justify-start gap-2 [&_svg]:shrink-0"
+            className="w-full cursor-pointer justify-start gap-2 [&_svg]:shrink-0"
             onClick={handleLogout}
             disabled={isLoading}
           >
