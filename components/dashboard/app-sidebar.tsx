@@ -1,20 +1,21 @@
+"use client"
+
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarHeader,
 } from "@/components/ui/sidebar"
+import { SidebarHeaderComponent } from "./SidebarHeader"
+import { SidebarNavComponent } from "./SidebarNav"
+import { SidebarFooterComponent } from "./SidebarFooter"
 
 export function AppSidebar() {
   return (
-    <Sidebar>
-      <SidebarHeader />
+    <Sidebar collapsible="icon">
+      <SidebarHeaderComponent />
       <SidebarContent>
-        <SidebarGroup />
-        <SidebarGroup />
+        <SidebarNavComponent />
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooterComponent />
     </Sidebar>
   )
 }
