@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import HomepageComponent from "@/components/Homepage"
+import HomepageComponent from "@/components/dashboard/Homepage"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
